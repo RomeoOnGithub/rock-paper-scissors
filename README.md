@@ -11,22 +11,24 @@
 The instruction asks for the 'logic'. Logic 
 
 - return a random value between 1-3 (because rock, paper, scissors provides three choices)
-- allocate names for the values between 1-3
+- allocate names for the values between 1-3 *(could be 0-2 since 0 is inclusive but that doesn't render readable code imo)*
     - 1 returns rock
     - 2 returns paper
     - 3 returns scissors
 
 ## 2. plan
-- Create a function for randomised number
-- Create a function for naming the randomised number
+- Create a function for random number
+- Create a function for naming the random number
 
 ## 3. pseudocode
-function for the random choice made by the computer to return a value between 1 & 3 
-- (could be 0-2 since 0 is inclusive but that doesn't render readable code imo)
-
-if the returned value is 1, then return 'Rock'
-if the returned value is 2, then return 'Paper'
-if the returned value is 3, then return 'Scissors'
+function for the random choice made by the computer to return a value between 1 & 3:
+function for random choice made by the computer
+- create a value (randomNumber) that can catch the returned random number
+- based on the returned value (number), translate it into words:
+    - if the returned value is 1, then return 'Rock'
+    - if the returned value is 2, then return 'Paper'
+    - if neither of the above, then return 'Scissors'
+- print the result of the function
 
 ---
 # instruction 2 - write the logic to get the human choice
