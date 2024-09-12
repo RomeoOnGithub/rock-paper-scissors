@@ -1,42 +1,72 @@
-<script> // Get computer choice
-    function getComputerChoice() {
-        let randomNumber = Math.floor(Math.random() * 3 + 1); //random whole number between 1-3
-        return randomNumber === 1 ? "Rock" : randomNumber === 2 ? "Paper" : "Scissors"; //convert whole number into string
-    }
-    let computerChoice = getComputerChoice(); //capture the result
-    console.log(computerChoice); //print the result
-</script>
-<script> //Get human choice
+<script> 
+ // Get computer choice
+ function getComputerChoice() {
+     let randomNumber = Math.floor(Math.random() * 3 + 1); //random whole number between 1-3
+     return randomNumber === 1 ? "Rock" : randomNumber === 2 ? "Paper" : "Scissors"; //convert whole number into string
+ }
+    
+//declare valid choices
+function getHumanChoice() {
+    //Get human choice
     let promptInput = window.prompt("enter: rock, paper, or scissors"); //human input
-    let promptHandler = promptInput.charAt(0).toUpperCase() + promptInput.slice(1).toLowerCase(); //handle case insensitivity
-    
-    function getHumanChoice() { //declare valid choices
-        return (promptHandler === "Rock" || promptHandler === "Paper" || promptHandler === "Scissors") ? promptHandler : "Invalid Choice";
-    }
-    
-    let humanChoice = getHumanChoice() //capture the choice result
-    console.log(humanChoice) //print the choice result
-</script>
-<script> //declare scores  
-    let humanScore = 0;
-    let computerScore = 0;
-</script>
-<script> // game round logic & result prompts
+
+    //handle case insensitivity
+    let promptHandler = promptInput.charAt(0).toUpperCase() + promptInput.slice(1).toLowerCase();
+    return (promptHandler === "Rock" || promptHandler === "Paper" || promptHandler === "Scissors") ? promptHandler : "Invalid Choice";
+}
+
+//declare scores 
+let humanScore = 0;
+let computerScore = 0;
+
+
+//game logic
+function playGame() {
+    // Loop to play multiple rounds
+    let playAgain = true;
+    while (playAgain) {
+
+    //fetch human input
+    let humanChoice = getHumanChoice();
+        //print
+        console.log(humanChoice);
+
+     //fetch computer input
+    let computerChoice = getComputerChoice();
+        //print
+        console.log(computerChoice);
+
+    //single round logic
     function playRound(humanChoice, computerChoice) {
-        return humanChoice === computerChoice ? "Tie!" 
-        : humanChoice === "Rock" && computerChoice === "Scissors" ? "You win! Rock smashed Scissors to pieces" 
-         : humanChoice === "Paper" && computerChoice === "Rock" ? "You win! Paper wrapped up Rock" 
-            : humanChoice === "Scissors" && computerChoice === "Paper" ? "You win! Scissors shredded Paper" 
-                : "Computer Wins!"; //simplified but can be expanded
+        if (humanChoice === computerChoice) {
+            return "Tie!";
+        } else if  (
+            (humanChoice === "Rock" && computerChoice === "Scissors") ||
+            (humanChoice === "Paper" && computerChoice === "Rock") ||
+            (humanChoice === "Scissors" && computerChoice === "Paper")
+      )  {
+            humanScore++; //increment human score
+            return "You win!";
+            }
+         else { 
+            computerScore++; //increment computer score 
+            return "Computer wins!"; //(simplified but can be expanded)
+            }
+        }           
+    
+//capture round result
+let roundResult = playRound(humanChoice, computerChoice);
+    
+//print round result
+console.log(roundResult);
+
+//print the score
+console.log(`Current Score - You: ${humanScore}, Computer: ${computerScore}`);
+    
+//prompt to restart
+playAgain = window.confirm("Do you want to play again?");  
     }
-    
-    let roundResult = playRound(humanChoice, computerChoice) //capture round result
-    console.log(roundResult);//print round result
-</script>
-<script> // points logic based on roundResult
-    roundResult.includes("You win!") ? humanScore++ //increment human score
-      : roundResult.includes("Computer Wins!") ? computerScore++ //increment computer score
-          : null; //for some reason I needed this to close the script
-    
-    console.log(`Current Score - You: ${humanScore}, Computer: ${computerScore}`); //print the score
+}
+playGame();
+
 </script>

@@ -57,3 +57,7 @@
 
 - [ ] function: playGame
     - when playRound is called 5 times
+
+---
+> problems / todo
+> - it doesn't stop when one gets to five
