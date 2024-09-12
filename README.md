@@ -1,34 +1,59 @@
-# rock-paper-scissors
+> Rock, Paper, Scissors from The Odin Project
 
----
+# understand 
+- 3 variables
+    - rock, paper, scissors
+- 2 methods of input
+    - computer input = random generated
+    - human input = typed and entered
+- computer vs player (logic behind the game / comparison between inputs)
+    - the player can only **win** when *(player | computer)*:
+        - rock | scissors
+        - paper | rock
+        - scissors | paper
+    - the player **ties** when inputs match
+    - the player **loses** when none of the above 
+- first to five
 
-# instruction 1 - write the logic to get the computer choice
-"Write the code so that getComputerChoice will randomly return one of the following string values: “rock”, “paper” or “scissors”."
+# plan & pseudo-code
+*🔑 = ✅ Complete* || *❌ not*
 
-"Hint: The Math.random method returns a random number that’s greater than or equal to 0 and less than 1. Think about how you can use this to conditionally return one of the multiple choices."
+**1.1 computer input script for randomly returning one of the options**
 
-## 1. understand
-The instruction asks for the 'logic'. Logic 
+- function: *getComputerChoice*
 
-- return a random value between 1-3 (because rock, paper, scissors provides three choices)
-- allocate names for the values between 1-3 *(could be 0-2 since 0 is inclusive but that doesn't render readable code imo)*
-    - 1 returns rock
-    - 2 returns paper
-    - 3 returns scissors
+    - [✅] variable that selects a number between 1-3 at random
+    - [✅] returning the variable, **translated** into strings
 
-## 2. plan
-- Create a function for random number
-- Create a function for naming the random number
+- [✅] global log variable capturing the result
+- [✅] print this variable 
 
-## 3. pseudocode
-function for the random choice made by the computer to return a value between 1 & 3:
-function for random choice made by the computer
-- create a value (randomNumber) that can catch the returned random number
-- based on the returned value (number), translate it into words:
-    - if the returned value is 1, then return 'Rock'
-    - if the returned value is 2, then return 'Paper'
-    - if neither of the above, then return 'Scissors'
-- print the result of the function
+**2.1 script for recording human input**
 
----
-# instruction 2 - write the logic to get the human choice
+- function: *getHumanChoice*
+    - [✅] variable that captures player input from a prompt
+    - [✅] variable that handles case insensitivity
+    - [✅] declare valid options, the rest is invalid
+
+- [✅] global log variable capturing the result
+- [✅] print this variable
+
+**3.1 script for keeping score**
+
+- [✅] variable that records humanScore
+- [✅] variable that records computerScore
+- [✅] increment score based on round winner
+
+**4.1 script for game logic**
+
+- function: playRound
+
+    - [✅] compare the inputs and have a prompt for the results
+
+- [✅] global log variable capturing the result
+- [✅] print the variable
+
+**4.2 script for making a max round**
+
+- [ ] function: playGame
+    - when playRound is called 5 times
