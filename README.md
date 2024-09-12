@@ -60,4 +60,3 @@
 
 ---
 > problems / todo
-> - it doesn't stop when one gets to five

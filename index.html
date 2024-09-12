@@ -25,6 +25,7 @@ function playGame() {
     // Loop to play multiple rounds
     let playAgain = true;
     while (playAgain) {
+    while (humanScore < 5 && computerScore < 5) {
 
     //fetch human input
     let humanChoice = getHumanChoice();
@@ -46,11 +47,17 @@ function playGame() {
             (humanChoice === "Scissors" && computerChoice === "Paper")
       )  {
             humanScore++; //increment human score
-            return "You win!";
+            if (humanScore === 5 ) {
+                return "You won!"
+            }  
+            return "You win the round!";
             }
          else { 
             computerScore++; //increment computer score 
-            return "Computer wins!"; //(simplified but can be expanded)
+            if (computerScore === 5 ) {
+                return "You lose!"
+            }  
+            return "Computer wins the round!"; //(simplified but can be expanded)
             }
         }           
     
@@ -62,10 +69,9 @@ console.log(roundResult);
 
 //print the score
 console.log(`Current Score - You: ${humanScore}, Computer: ${computerScore}`);
-    
+    }}
 //prompt to restart
 playAgain = window.confirm("Do you want to play again?");  
-    }
 }
 playGame();
 
