@@ -1,78 +1,19 @@
-<script> 
- // Get computer choice
- function getComputerChoice() {
-     let randomNumber = Math.floor(Math.random() * 3 + 1); //random whole number between 1-3
-     return randomNumber === 1 ? "Rock" : randomNumber === 2 ? "Paper" : "Scissors"; //convert whole number into string
- }
-    
-//declare valid choices
-function getHumanChoice() {
-    //Get human choice
-    let promptInput = window.prompt("enter: rock, paper, or scissors"); //human input
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="buttons">
+        <button id="rock">Rock</button>
+        <button id="paper">Paper</button>
+        <button id="scissors">Scissors</button>
+    </div>
+    <div id="results">
 
-    //handle case insensitivity
-    let promptHandler = promptInput.charAt(0).toUpperCase() + promptInput.slice(1).toLowerCase();
-    return (promptHandler === "Rock" || promptHandler === "Paper" || promptHandler === "Scissors") ? promptHandler : "Invalid Choice";
-}
-
-//declare scores 
-let humanScore = 0;
-let computerScore = 0;
-
-
-//game logic
-function playGame() {
-    // Loop to play multiple rounds
-    let playAgain = true;
-    while (playAgain) {
-    while (humanScore < 5 && computerScore < 5) {
-
-    //fetch human input
-    let humanChoice = getHumanChoice();
-        //print
-        console.log(humanChoice);
-
-     //fetch computer input
-    let computerChoice = getComputerChoice();
-        //print
-        console.log(computerChoice);
-
-    //single round logic
-    function playRound(humanChoice, computerChoice) {
-        if (humanChoice === computerChoice) {
-            return "Tie!";
-        } else if  (
-            (humanChoice === "Rock" && computerChoice === "Scissors") ||
-            (humanChoice === "Paper" && computerChoice === "Rock") ||
-            (humanChoice === "Scissors" && computerChoice === "Paper")
-      )  {
-            humanScore++; //increment human score
-            if (humanScore === 5 ) {
-                return "You won!"
-            }  
-            return "You win the round!";
-            }
-         else { 
-            computerScore++; //increment computer score 
-            if (computerScore === 5 ) {
-                return "You lose!"
-            }  
-            return "Computer wins the round!"; //(simplified but can be expanded)
-            }
-        }           
-    
-//capture round result
-let roundResult = playRound(humanChoice, computerChoice);
-    
-//print round result
-console.log(roundResult);
-
-//print the score
-console.log(`Current Score - You: ${humanScore}, Computer: ${computerScore}`);
-    }}
-//prompt to restart
-playAgain = window.confirm("Do you want to play again?");  
-}
-playGame();
-
-</script>
+    </div>
+<script src="script.js"></script>
+</body>
+</html>
