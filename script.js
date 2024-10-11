@@ -17,11 +17,17 @@
    let computerScore = 0;
    
 //game logic
+
    function playGame(humanChoice) {
+    //game end logic
+        if (humanScore === 5 || computerScore === 5) {
+            return;
+        }
+    //capturing inputs
         logResult(`You chose: ${humanChoice}`);
        let computerChoice = getComputerChoice();
             logResult(`Computer chose: ${computerChoice}`);
-       
+    //comparing inputs
        function playRound(humanChoice, computerChoice) {
            if (humanChoice === computerChoice) {
            return "Tie!";
@@ -45,13 +51,12 @@
            }  
            return "Computer wins the round!";
            }
-       }
-         
+       } 
     let roundResult = playRound(humanChoice, computerChoice);
     
     logResult(roundResult);
     logResult(`Current Score - You: ${humanScore}, Computer: ${computerScore}`);
-    } 
+    }
 
 //human choice logic
 document.getElementById('rock').addEventListener("click", function() {
@@ -63,3 +68,4 @@ document.getElementById('paper').addEventListener("click", function() {
 document.getElementById('scissors').addEventListener("click", function() {
     playGame('Scissors');
 });
+
