@@ -1,6 +1,6 @@
 //result logging logic
     function logResult(message) {
-        const resultDiv = document.getElementById('results');
+        const resultDiv = document.getElementById('round-results');
         const newResult = document.createElement('div');
         newResult.textContent = message;
         resultDiv.appendChild(newResult);
@@ -62,6 +62,8 @@
         buttonsDiv.appendChild(announcementDiv);
         const announceWinner = document.createElement('p');
         announcementDiv.appendChild(announceWinner);
+        announceWinner.style.fontWeight = "bold";
+
         
         if (humanScore === 5) {
             announceWinner.textContent = "Human Wins!";
